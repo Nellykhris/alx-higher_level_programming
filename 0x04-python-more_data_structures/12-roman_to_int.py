@@ -7,8 +7,8 @@ def roman_to_int(roman_string):
         if (roman_string[i] == 'I'):
             value += 1
         if (roman_string[i] == 'V'):
-            if (roman_string[i - 1] == 'I' and i != 0):
-                value -= 2
+            if (roman_string[i + 1] == 'I' and i != 0):
+                value += 2
             value += 5
         if (roman_string[i] == 'X'):
             if (roman_string[i - 1] == 'I' and i != 0):
