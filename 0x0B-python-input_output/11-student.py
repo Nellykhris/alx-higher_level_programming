@@ -30,5 +30,5 @@ class Student():
     def reload_from_json(self, json):
         """Replaces all items in Json"""
 
-    for a in json.keys():
+        for a in json.keys():
              self.__dict__[a] = json[a]
