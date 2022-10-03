@@ -3,5 +3,5 @@
  *  * of string and a loop */
 const myArray = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 for (let i = 0; myArray[i] !== undefined; i++) {
-	  console.log(myArray[i]);
+  console.log(myArray[i]);
 }
