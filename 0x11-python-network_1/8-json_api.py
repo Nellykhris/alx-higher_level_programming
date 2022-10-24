@@ -1,12 +1,24 @@
 #!/usr/bin/python3
-"""Python script that sends a request and displays
-the body of the response (decoded in utf-8)"""
+"""
+Script that takes in a letter and sends a POST request to
+http://0.0.0.:5000/search_user with the letter as a  parameter
+"""
 import requests
 from sys import argv
 
-if __name__ == '__main__':
-    req = requests.get(argv[1])
-    if req.status_code >= 400:
-        print(f"Error code: {req.status_code}")
+if __name__ == "__main__":
+    url = "http://0.0.0.0:5000/search_user"
+    if len(argv) == 1:
+        print("No result")
+        quit()
+    letter = argv[1]
+    res = requests.post(url, data={"q": letter})
+    try:
+        res_json = res.json()
+    except:
+        print("Not a valid JSON")
     else:
-        print(f"{req.text}")
+        if len(res_json) == 0:
+            print("No result")
+        else:
+            print("[{}] {}".format(res_json["id"], res_json["name"]))
